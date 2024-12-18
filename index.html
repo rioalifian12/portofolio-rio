@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio</title>
     <link href="src/output.css" rel="stylesheet" />
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body>
     <!-- Header Start -->
@@ -37,50 +48,66 @@
             </button>
             <nav
               id="nav-menu"
-              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+              class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-slate-800 lg:dark:bg-transparent"
             >
               <ul class="block lg:flex">
                 <li class="group">
                   <a
                     href="#home"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Home</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#about"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >About</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#portfolio"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Portfolio</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#clients"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Clients</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#blog"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Blog</a
                   >
                 </li>
                 <li class="group">
                   <a
                     href="#contact"
-                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary"
+                    class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white"
                     >Contact</a
                   >
+                </li>
+                <li class="flex items-center pl-8 mt-3 lg:mt-0">
+                  <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">Light</span>
+                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                    <label for="dark-toggle">
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
+                      </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">Dark</span>
+                  </div>
                 </li>
               </ul>
             </nav>
@@ -91,14 +118,14 @@
     <!-- Header End -->
 
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-dark md:text-xl">
+            <h1 class="text-base font-semibold text-primary md:text-xl">
               Hallo 👋, I am
               <span
-                class="block font-bold text-primary text-4xl mt-1 lg:text-5xl"
+                class="block font-bold text-dark text-4xl mt-1 lg:text-5xl dark:text-white"
                 >Rio Alifian Santoso</span
               >
             </h1>
@@ -130,14 +157,16 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="font-bold uppercase text-primary text-lg mb-3">
               About Me
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
+            <h2
+              class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white"
+            >
               Yuk belajar pemrograman web ...
             </h2>
             <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
@@ -147,7 +176,7 @@
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3
-              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10"
+              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white"
             >
               Mari Berteman
             </h3>
@@ -240,13 +269,13 @@
     <!-- About Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portfolio" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Portfolio</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
               Projects
             </h2>
@@ -268,7 +297,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="text-xl font-semibold text-dark mt-5 mb-3">
+            <h3
+              class="text-xl font-semibold text-dark mt-5 mb-3 dark:text-white"
+            >
               Landing Page Rio
             </h3>
             <p class="font-medium text-base text-secondary">
@@ -284,7 +315,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="text-xl font-semibold text-dark mt-5 mb-3">
+            <h3
+              class="text-xl font-semibold text-dark mt-5 mb-3 dark:text-white"
+            >
               E-Commerce
             </h3>
             <p class="font-medium text-base text-secondary">
@@ -300,7 +333,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="text-xl font-semibold text-dark mt-5 mb-3">
+            <h3
+              class="text-xl font-semibold text-dark mt-5 mb-3 dark:text-white"
+            >
               Technical Documentation
             </h3>
             <p class="font-medium text-base text-secondary">
@@ -316,7 +351,9 @@
                 width="w-full"
               />
             </div>
-            <h3 class="text-xl font-semibold text-dark mt-5 mb-3">
+            <h3
+              class="text-xl font-semibold text-dark mt-5 mb-3 dark:text-white"
+            >
               Tribute Page
             </h3>
             <p class="font-medium text-base text-secondary">
@@ -330,13 +367,13 @@
     <!-- Portfolio Section End -->
 
     <!-- Clients Section Start -->
-    <section id="clients" class="pt-36 pb-32 bg-slate-800">
+    <section id="clients" class="pt-36 pb-32 bg-slate-800 dark:bg-slate-300">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Clients</h4>
             <h2
-              class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark"
             >
               Our Clients
             </h2>
@@ -379,13 +416,13 @@
     <!-- Clients Section End -->
 
     <!-- Blog Section Start -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
               Latest Post
             </h2>
@@ -397,7 +434,9 @@
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+            >
               <img
                 src="https://picsum.photos/1000/600?random=1"
                 alt="Programming"
@@ -407,7 +446,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
                     >Tips Programming</a
                   >
                 </h3>
@@ -424,7 +463,9 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+            >
               <img
                 src="https://picsum.photos/1000/600?random=2"
                 alt="Football"
@@ -434,7 +475,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
                     >Enzo Maresca will not say Chelsea are in the title race</a
                   >
                 </h3>
@@ -451,7 +492,9 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800"
+            >
               <img
                 src="https://picsum.photos/1000/600?random=3"
                 alt="Lifestyle"
@@ -461,7 +504,7 @@
                 <h3>
                   <a
                     href="#"
-                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate"
+                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary truncate dark:text-white"
                     >5 Ways to Start a Healthy Lifestyle</a
                   >
                 </h3>
@@ -483,13 +526,13 @@
     <!-- Blog Section End -->
 
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
             <h2
-              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"
+              class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
             >
               Contact Us
             </h2>
